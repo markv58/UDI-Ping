@@ -10,6 +10,8 @@ Install from the NodeServer store or manually.
     chmod +x install.sh
     ./install.sh
 
+Note: If you do a manual install, you will need to do a 'git reset --hard' in the .polyglot/nodeservers/UDI-Ping folder before you can update from the NodeServer store or do a 'git pull'.
+
 #### Requirements
 
 A local Polyglot Nodeserver running on a Raspberry Pi.
