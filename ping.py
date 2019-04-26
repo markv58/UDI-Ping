@@ -54,10 +54,7 @@ class Controller(polyinterface.Controller):
         LOGGER.debug('NodeServer stopped.')
 
     def check_params(self):
-        if 'timeout' in self.polyConfig['customParams']:
-            self.timeout = self.polyConfig['customParams']['timeout']
-        else:
-            pass
+        pass
 
     def remove_notices_all(self,command):
         LOGGER.info('remove_notices_all:')
