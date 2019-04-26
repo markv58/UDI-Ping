@@ -6,7 +6,7 @@ Install from the NodeServer store or manually.
 
     cd .polyglot/nodeservers
     git clone https://github.com/markv58/UDI-Ping.git
-    cd Ping
+    cd UDI-Ping
     chmod +x install.sh
     ./install.sh
 
