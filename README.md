@@ -13,3 +13,7 @@ Install from the NodeServer store or manually.
 #### Requirements
 
 A local Polyglot Nodeserver running on a Raspberry Pi.
+
+#### What does this do?
+
+This will ping devices on your lan or a .com. If a device does not respond it will be reported as In Fault until it hits 5 faults and then it's reported as Off Network. You can keep tabs on your devices, router, modem, internet connection, etc. and program an ISY controlled switch to cycle Off then On to reset the device or send yourself a notification.
