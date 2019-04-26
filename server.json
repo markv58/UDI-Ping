@@ -1,0 +1,21 @@
+{
+    "name": "Ping",
+    "docs": "https://github.com/markv58/Ping",
+    "type": "python3",
+    "executable": "ping.py",
+    "install": "install.sh",
+    "description": "A simple nodeserver to ping devices.",
+    "notice": "Use at your own risk",
+    "shortPoll": "30",
+    "longPoll": "240",
+    "credits": [
+        {
+            "title": "Ping",
+            "author": "Mark Vittes (markv58)",
+            "version": "1.0.0",
+            "date": "April 25, 2019",
+            "source": "https://github.com/markv58/Ping",
+            "license": "https://raw.githubusercontent.com/markv58/Ping/master/LICENSE"
+        }
+    ]
+}

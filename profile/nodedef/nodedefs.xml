@@ -1,0 +1,34 @@
+<nodeDefs>
+    <!-- controller -->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+            <sts>
+	      <st id="ST" editor="bool" />
+	    </sts>
+        <cmds>
+            <sends />
+            <accepts>
+              <cmd id="DISCOVER" />
+              <cmd id="REMOVE_NOTICES_ALL" />
+              <cmd id="UPDATE_PROFILE" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+	<!-- hostnode -->
+    <nodeDef id="hostnode" nls="host">
+        <editors />
+        <sts>
+            <st id="ST" editor="on_net" />
+            <st id="GV0" editor="missed" />
+            <st id="GV1" editor="bool" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="DON" />
+                <cmd id="DOF" />
+		<cmd id="QUERY"/>
+            </accepts>
+        </cmds>
+    </nodeDef>
+</nodeDefs>
