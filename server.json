@@ -1,6 +1,6 @@
 {
     "name": "Ping",
-    "docs": "https://github.com/markv58/Ping",
+    "docs": "https://github.com/markv58/UDI-Ping",
     "type": "python3",
     "executable": "ping.py",
     "install": "install.sh",
@@ -14,8 +14,8 @@
             "author": "Mark Vittes (markv58)",
             "version": "1.0.0",
             "date": "April 25, 2019",
-            "source": "https://github.com/markv58/Ping",
-            "license": "https://raw.githubusercontent.com/markv58/Ping/master/LICENSE"
+            "source": "https://github.com/markv58/UDI-Ping",
+            "license": "https://raw.githubusercontent.com/markv58/UDI-Ping/master/LICENSE"
         }
     ]
 }
