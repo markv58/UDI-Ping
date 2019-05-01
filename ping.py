@@ -18,18 +18,20 @@ class Controller(polyinterface.Controller):
     def __init__(self, polyglot):
         super(Controller, self).__init__(polyglot)
         self.name = 'Ping'
+        self.firstCycle = True
         
     def start(self):
         LOGGER.info('Started Ping')
-        self.timeout = 2
         self.discover()
         self.check_params()
         
     def shortPoll(self):
         for node in self.nodes:
             self.nodes[node].update()
-            self.nodes[node].reportDrivers()
-        
+        if self.firstCycle:
+             self.query()
+             self.firstCycle = False
+
     def longPoll(self):
         pass
 
