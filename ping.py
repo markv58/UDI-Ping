@@ -110,8 +110,8 @@ class hostnode(polyinterface.Node):
             result = netstat.ping()
             
             if (result != None):
-                self.setOnNetwork(0)
                 self.missed = 0
+                self.setOnNetwork(0)
                 #LOGGER.debug(self.ip + ': On Network')
             elif (self.missed >= 5):
                 self.setOffNetwork()
