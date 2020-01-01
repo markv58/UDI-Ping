@@ -87,8 +87,8 @@ class Ping(object):
         response = 0
         try:
             response,result = subprocess.getstatusoutput("ping -c1 -w2 " + self.ip)
-            LOGGER.debug('first try')
-            LOGGER.debug(response)
+            #LOGGER.debug('first try')
+            #LOGGER.debug(response)
             if response == 0:
                 return response
         except:
@@ -97,7 +97,7 @@ class Ping(object):
             try:
                 response = subprocess.call(['/sbin/ping','-c1','-W2', self.ip], shell=False)
                 #LOGGER.debug('second try')
-                LOGGER.debug(response)
+                #LOGGER.debug(response)
                 if response == 0:
                     return response
             except:
