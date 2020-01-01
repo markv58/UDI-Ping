@@ -20,5 +20,5 @@ A local Polyglot Nodeserver running on a Raspberry Pi.
 
 This will ping devices on your lan or a .com. If a device does not respond it will be reported as In Fault until it hits 5 faults and then it's reported as Off Network. You can keep tabs on your devices, router, modem, internet connection, etc. and program an ISY controlled switch to cycle Off then On to reset the device or send yourself a notification.
 
-1.0.2 minor bug fix
-1.0.3 fixed crash when external ip is unreachable or modem is down
+   1.0.2 minor bug fix
+   1.0.3 fixed crash when external ip is unreachable or modem is down
