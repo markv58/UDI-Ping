@@ -23,3 +23,5 @@ This will ping devices on your lan or a .com. If a device does not respond it wi
 1.0.2 minor bug fix
 
 1.0.3 fixed crash when external ip is unreachable or modem is down
+
+1.0.5 works on Polisy now, use ip instead of the domain name. Ex. 8.8.8.8 for Google
