@@ -85,7 +85,7 @@ class Ping(object):
 
     def ping(self):
         try:
-            response,result = subprocess.getstatusoutput("sudo ping -c1 -w2 " + self.ip)
+            response,result = subprocess.getstatusoutput("ping -c1 -w2 " + self.ip)
             if response == 0:
                 return response
             else:
