@@ -4,7 +4,7 @@
     "type": "python3",
     "executable": "ping.py",
     "install": "install.sh",
-    "description": "A simple nodeserver to ping devices. (Not working on Polisy at this time)",
+    "description": "A simple nodeserver to ping devices.",
     "notice": "Use at your own risk",
     "shortPoll": "30",
     "longPoll": "240",
