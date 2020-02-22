@@ -2,8 +2,8 @@ Enter the name and ip address of the device you want to monitor or the ip addres
 
     Key                       Value
     
-    Google                    8.8.8.8          (to ping their dns)
-    Google                    www.google.com
+    Google                    8.8.8.8           (to ping their dns)
+    Google                    www.google.com.   (include the www or the ping will fail)
     Modem                     192.196.196.1
     BlueIris                  192.196.196.105
     Polyglot_2                192.196.196.87
