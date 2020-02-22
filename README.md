@@ -2,6 +2,8 @@
 
 #### Installation
 
+### Please backup your Isy and Polyglot before installing the node server.
+
 Install from the NodeServer store or manually.
 
     cd .polyglot/nodeservers
