@@ -2,12 +2,14 @@ Enter the name and ip address of the device you want to monitor or the ip addres
 
     Key                       Value
     
-    Google                    8.8.8.8 (Polisy)
-    Google                    google.com (RPi only)
+    Google                    8.8.8.8          (to ping their dns)
+    Google                    www.google.com
     Modem                     192.196.196.1
     BlueIris                  192.196.196.105
     Polyglot_2                192.196.196.87
 
+
+Pinging a url should be used to determine if your internet connection is up or down and not nessecarily to check the status of a website.
 
 After you add a custom parameter hit Save Changes then Restart for your new Parameters to take effect.
 
