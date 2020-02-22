@@ -2,6 +2,7 @@
 """
 This is a NodeServer was created using template for Polyglot v2 written in Python2/3
 by Einstein.42 (James Milne) milne.james@gmail.com
+v1.0.6
 """
 import polyinterface
 import sys
@@ -42,10 +43,14 @@ class Controller(polyinterface.Controller):
             self.nodes[node].reportDrivers()
 
     def discover(self, *args, **kwargs):
-        #Discover nodes and add them
         for key,val in self.polyConfig['customParams'].items():
-            netip = val.replace('.','')
-            self.addNode(hostnode(self, self.address, netip, val, key))
+            _netip = val.replace('.','')
+            if _netip[:3] == "www":
+                netip = _netip[3:17]
+            else:
+                netip = _netip[:14]
+            _key = key[:20]
+            self.addNode(hostnode(self, self.address, netip, val, _key))
             
     def update(self):
         pass
@@ -87,8 +92,6 @@ class Ping(object):
         response = 0
         try:
             response,result = subprocess.getstatusoutput("ping -c1 -W " + str(self.timeout-1) + " " + self.ip)
-            #LOGGER.debug('first try')
-            #LOGGER.debug(response)
             if response == 0:
                 return response
         except:
@@ -96,8 +99,6 @@ class Ping(object):
         if response == 127:
             try:
                 response = subprocess.call(['/sbin/ping','-c1','-t' + str(self.timeout-1), self.ip], shell=False)
-                #LOGGER.debug('second try')
-                #LOGGER.debug(response)
                 if response == 0:
                     return response
             except:
