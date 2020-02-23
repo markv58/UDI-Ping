@@ -2,7 +2,7 @@
 """
 This is a NodeServer was created using template for Polyglot v2 written in Python2/3
 by Einstein.42 (James Milne) milne.james@gmail.com
-v1.0.8
+v1.0.9
 """
 import polyinterface
 import sys
@@ -149,9 +149,7 @@ class hostnode(polyinterface.Node):
     
     def setOn(self, command):
         self.missed = 0
-        self.setOffNetwork()
-        self.setDriver('GV0', 0)
-        self.setDriver('GV1', 1)
+        self.setOnNetwork(self.missed)
         self.scan = 1
 
     def setOff(self, command):
