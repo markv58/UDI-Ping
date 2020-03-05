@@ -128,6 +128,7 @@ class hostnode(polyinterface.Node):
                 #LOGGER.debug(self.ip + ': On Network')
             elif (self.missed >= 5):
                 self.setOffNetwork()
+                if self.missed < 1000: self.missed += 1
                 #LOGGER.debug(self.ip + ': Off Network')           
             elif self.missed >= 0 and self.missed < 5:
                 self.missed += 1
