@@ -4,7 +4,7 @@
         <range uom="2" subset="0,1" />
     </editor>
     <editor id="missed">
-        <range uom="56" subset="0-1000" />
+        <range uom="56" subset="0-1440" />
     </editor>
     <editor id="on_net">
         <range uom="25" subset="0-2" nls="NETSTAT" />
