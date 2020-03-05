@@ -11,7 +11,7 @@ ND-hostnode-NAME = Host
 ND-hostnode-ICON = GenericCtl
 CMD-host-QUERY-NAME = Query
 ST-host-ST-NAME = Host Status
-ST-host-GV0-NAME = Missed Pings
+ST-host-GV0-NAME = Missed Pings - Max 1440
 ST-host-GV1-NAME = Scanning
 
 NETSTAT-0 = On Network
