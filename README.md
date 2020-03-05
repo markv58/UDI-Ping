@@ -1,5 +1,9 @@
 # Ping Node Server
 
+#### Updating
+
+Answer Yes to upload profile. Restart the nodeserver, click the Update Profile button then close and restart the AC.
+
 #### Installation
 
 #### Please backup your Isy and Polyglot before installing the node server.
