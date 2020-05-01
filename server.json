@@ -6,7 +6,7 @@
     "install": "install.sh",
     "description": "A simple nodeserver to ping devices. Works on Polisy",
     "notice": "Use at your own risk",
-    "shortPoll": "30",
+    "shortPoll": "60",
     "longPoll": "240",
     "credits": [
         {
