@@ -37,3 +37,5 @@ This will ping devices on your lan or a .com. If a device does not respond it wi
 1.0.9 Set all as On Network on restart.
 
 1.0.10 Increased missed pings to 1440 max instead of 5, Off network count still 5 missed pings.
+
+1.0.11 Better error handling.
