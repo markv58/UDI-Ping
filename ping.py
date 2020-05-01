@@ -94,14 +94,16 @@ class Ping(object):
             response,result = subprocess.getstatusoutput("ping -c1 -W " + str(self.timeout-1) + " " + self.ip)
             if response == 0:
                 return response
-        except:
+        except Exception as e:
+            LOGGER.error('Error %s ',e)
             return None
         if response == 127:
             try:
                 response = subprocess.call(['/sbin/ping','-c1','-t' + str(self.timeout-1), self.ip], shell=False)
                 if response == 0:
                     return response
-            except:
+            except Exception as e:
+                LOGGER.error('Error %s ',e)
                 return None
         else:
             return None
