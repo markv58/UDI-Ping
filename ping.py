@@ -14,6 +14,7 @@ import fcntl
 import subprocess
 
 LOGGER = polyinterface.LOGGER
+debugLog = 0
 
 class Controller(polyinterface.Controller):
 
@@ -21,18 +22,23 @@ class Controller(polyinterface.Controller):
         super(Controller, self).__init__(polyglot)
         self.name = 'Ping'
         self.firstCycle = True
-        
+
     def start(self):
         LOGGER.info('Started Ping')
         self.discover()
         self.check_params()
-        
+
     def shortPoll(self):
         for node in self.nodes:
-            self.nodes[node].update()
-        if self.firstCycle:
-             self.query()
-             self.firstCycle = False
+            result = self.checkwlan0()
+            if result == 1:
+                if debugLog == 1: LOGGER.debug(result)
+                LOGGER.debug("wlan0 is UP")
+                self.nodes[node].update()
+            else:
+                while result != 1:
+                     time.sleep(10)
+                     result = self.checkwlan0()
 
     def longPoll(self):
         pass
@@ -44,14 +50,26 @@ class Controller(polyinterface.Controller):
 
     def discover(self, *args, **kwargs):
         for key,val in self.polyConfig['customParams'].items():
-            _netip = val.replace('.','')
-            if _netip[:3] == "www":
-                netip = _netip[3:17]
+            if key == "debug":
+                if val == "True":
+                    global debugLog
+                    debugLog = 1
+                    LOGGER.info("Debug logging enabled %s" ,debugLog)
+                    pass
             else:
-                netip = _netip[:14]
-            _key = key[:20]
-            self.addNode(hostnode(self, self.address, netip, val, _key))
-            
+                _netip = val.replace('.','')
+                if _netip[:3] == "www":
+                    netip = _netip[3:17]
+                else:
+                    netip = _netip[:14]
+                _key = key[:20]
+                self.addNode(hostnode(self, self.address, netip, val, _key))
+
+    def checkwlan0(self):
+        response,result = subprocess.getstatusoutput("ifconfig wlan0 | grep UP")
+        if debugLog == 1: LOGGER.debug("checkwlan0 %s" ,response)
+        return response
+
     def update(self):
         pass
 
@@ -92,6 +110,7 @@ class Ping(object):
         response = 0
         try:
             response,result = subprocess.getstatusoutput("ping -c1 -W " + str(self.timeout-1) + " " + self.ip)
+            if debugLog == 1: LOGGER.debug("RPi %s " ,response)
             if response == 0:
                 return response
         except Exception as e:
@@ -100,11 +119,14 @@ class Ping(object):
         if response == 127:
             try:
                 response = subprocess.call(['/sbin/ping','-c1','-t' + str(self.timeout-1), self.ip], shell=False)
+                if debugLog == 1: LOGGER.debug("Polisy %s " ,response)
                 if response == 0:
                     return response
             except Exception as e:
                 LOGGER.error('Error %s ',e)
                 return None
+        else:
+            return None
         else:
             return None
 
@@ -114,46 +136,46 @@ class hostnode(polyinterface.Node):
         self.ip = ipaddress
         self.scan = 1
         self.missed = 0
-        
+
     def start(self):
         self.setOn('DON')
         self.reportDrivers()
-        
+
     def update(self):
         if (self.scan):
             netstat = Ping(ip=self.ip,timeout=self.parent.polyConfig['shortPoll'])
             result = netstat.ping()
-            
+
             if (result != None):
                 self.missed = 0
                 self.setOnNetwork(0)
-                #LOGGER.debug(self.ip + ': On Network')
+                if debugLog == 1: LOGGER.debug(self.ip + ': On Network')
             elif (self.missed >= 5):
                 self.setOffNetwork()
                 if self.missed < 1440: self.missed += 1
-                #LOGGER.debug(self.ip + ': Off Network')           
+                if debugLog ==1: LOGGER.debug(self.ip + ': Off Network')
             elif self.missed >= 0 and self.missed < 5:
                 self.missed += 1
                 self.setInFault(self.missed)
-                #LOGGER.debug(self.ip + ': In Fault')
- 
-            
+                if debugLog ==1: LOGGER.debug(self.ip + ': In Fault')
+
+
     def setOnNetwork(self,missed):
         self.setDriver('ST', 0)
         self.setDriver('GV0', self.missed)
-    
+
     def setInFault(self, missed):
         self.setDriver('ST', 1)
         self.setDriver('GV0', self.missed)
-        
+
     def setOffNetwork(self):
         self.setDriver('ST', 2)
         self.setDriver('GV0', self.missed)
-    
+
     def setOn(self, command):
         self.missed = 0
         self.setOnNetwork(self.missed)
-        self.setDriver('GV1', 1)        
+        self.setDriver('GV1',1)
         self.scan = 1
 
     def setOff(self, command):
