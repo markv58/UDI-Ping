@@ -49,10 +49,10 @@ class Controller(polyinterface.Controller):
             self.nodes[node].reportDrivers()
 
     def discover(self, *args, **kwargs):
+        global debugLog
         for key,val in self.polyConfig['customParams'].items():
             if key == "debug":
                 if val == "True":
-                    global debugLog
                     debugLog = 1
                     LOGGER.info("Debug logging enabled %s" ,debugLog)
                     pass
