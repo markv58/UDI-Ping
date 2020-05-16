@@ -127,8 +127,6 @@ class Ping(object):
                 return None
         else:
             return None
-        else:
-            return None
 
 class hostnode(polyinterface.Node):
     def __init__(self, controller, primary, address, ipaddress, name):
