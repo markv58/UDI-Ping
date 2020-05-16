@@ -33,7 +33,7 @@ class Controller(polyinterface.Controller):
             result = self.checkwlan0()
             if result == 1:
                 if debugLog == 1: LOGGER.debug(result)
-                LOGGER.debug("wlan0 is UP")
+                if debugLog == 1: LOGGER.debug("wlan0 is UP")
                 self.nodes[node].update()
             else:
                 while result != 1:
