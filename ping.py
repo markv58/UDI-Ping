@@ -153,6 +153,7 @@ class hostnode(polyinterface.Node):
     def setOn(self, command):
         self.missed = 0
         self.setOnNetwork(self.missed)
+        self.setDriver('GV1', 0)        
         self.scan = 1
 
     def setOff(self, command):
