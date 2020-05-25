@@ -30,7 +30,7 @@ This will ping devices on your lan or a .com. If a device does not respond it wi
 
 If you are pinging an external url and your modem or internet service goes down and you are running Ping on Polisy it is highly likely that Ping will crash. This problem doesn't appear to exist on a Raspberry Pi installation.
 
-On Polisy ping the ip address only. To determint the ip address from a url you can open a terminal window and execute the command:
+On Polisy ping the ip address only. To determine the ip address from a url you can open a terminal window and execute the command:
 
 ping yoururl.com
 
