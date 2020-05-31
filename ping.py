@@ -2,7 +2,7 @@
 """
 This is a NodeServer was created using template for Polyglot v2 written in Python2/3
 by Einstein.42 (James Milne) milne.james@gmail.com
-v1.0.12
+v1.0.13
 """
 import polyinterface
 import sys
@@ -12,8 +12,10 @@ import struct
 import array
 import fcntl
 import subprocess
+import logging
 
 LOGGER = polyinterface.LOGGER
+logging.getLogger('urllib3').setLevel(logging.ERROR)
 debugLog = 0
 
 class Controller(polyinterface.Controller):
@@ -29,16 +31,9 @@ class Controller(polyinterface.Controller):
         self.check_params()
 
     def shortPoll(self):
+        result = self.checkwlan0()        
         for node in self.nodes:
-            result = self.checkwlan0()
-            if result == 1:
-                if debugLog == 1: LOGGER.debug(result)
-                if debugLog == 1: LOGGER.debug("wlan0 is UP")
-                self.nodes[node].update()
-            else:
-                while result != 1:
-                     time.sleep(10)
-                     result = self.checkwlan0()
+            self.nodes[node].update()
 
     def longPoll(self):
         pass
