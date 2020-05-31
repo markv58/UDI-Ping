@@ -36,11 +36,11 @@ ping yoururl.com
 
 Note the ip address and use that to Ping.
 
-1.0.2 minor bug fix
+1.0.2 Minor bug fix
 
-1.0.3 fixed crash when external ip is unreachable or modem is down
+1.0.3 Fixed crash when external ip is unreachable or modem is down
 
-1.0.5 works on Polisy now, use ip instead of the domain name. Ex. 8.8.8.8 for Google
+1.0.5 Works on Polisy now, use ip instead of the domain name. Ex. 8.8.8.8 for Google
 
 1.0.8 Standardize url input for RPi and Polisy, <www.url.com>
 
@@ -51,3 +51,5 @@ Note the ip address and use that to Ping.
 1.0.11 Better error handling.
 
 1.0.12 Fixed a bug that would not show Scanning True after setting to off. Added extra debug logging option.
+
+1.0.13 Minor bug fix.
