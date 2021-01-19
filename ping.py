@@ -91,7 +91,8 @@ class Controller(polyinterface.Controller):
     commands = {
         'DISCOVER': discover,
         'UPDATE_PROFILE': update_profile,
-        'REMOVE_NOTICES_ALL': remove_notices_all
+        'REMOVE_NOTICES_ALL': remove_notices_all,
+        'QUERY': query
     }
     drivers = [{'driver': 'ST', 'value': 1, 'uom': 2}]
 
