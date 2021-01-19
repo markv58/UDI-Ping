@@ -2,7 +2,7 @@
 """
 This is a NodeServer was created using template for Polyglot v2 written in Python2/3
 by Einstein.42 (James Milne) milne.james@gmail.com
-v1.0.13
+v1.0.14
 """
 import polyinterface
 import sys
