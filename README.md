@@ -53,3 +53,5 @@ Note the ip address and use that to Ping.
 1.0.12 Fixed a bug that would not show Scanning True after setting to off. Added extra debug logging option.
 
 1.0.13 Minor bug fix.
+
+1.0.14 Added visible Query command button on controller page
