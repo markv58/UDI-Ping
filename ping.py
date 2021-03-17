@@ -2,7 +2,7 @@
 """
 This is a NodeServer was created using template for Polyglot v2 written in Python2/3
 by Einstein.42 (James Milne) milne.james@gmail.com
-v1.0.14
+v1.0.15
 """
 import polyinterface
 import sys
@@ -201,5 +201,6 @@ if __name__ == "__main__":
         control = Controller(polyglot)
         control.runForever()
     except (KeyboardInterrupt, SystemExit):
+        polyglot.stop()
         sys.exit(0)
 
