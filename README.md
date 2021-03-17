@@ -55,3 +55,5 @@ Note the ip address and use that to Ping.
 1.0.13 Minor bug fix.
 
 1.0.14 Added visible Query command button on controller page
+
+1.0.15 Fixed bug with Polisy 2.2.11
