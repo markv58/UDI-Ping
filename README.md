@@ -20,7 +20,7 @@ Note: If you do a manual install, you will need to do a 'git reset --hard' in th
 
 #### Requirements
 
-A local Polyglot Nodeserver running on a Raspberry Pi.
+A local Polyglot Nodeserver running on a Raspberry Pi or Polisy.
 
 #### What does this do?
 
